@@ -7,7 +7,7 @@ public class Main {
 	public static void main(String[] args) {
         
 		SeminarApp app = new SeminarApp();
-		var app2 = app.getRootApp();
+		var app2 = SeminarApp.getRootApp();
 		System.out.println(app);
 		System.out.println(app2);
 		app.setParent(null);

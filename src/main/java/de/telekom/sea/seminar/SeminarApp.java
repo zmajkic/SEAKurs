@@ -3,6 +3,12 @@ package de.telekom.sea.seminar;
 public class SeminarApp {
 
 	private Object parent;
+	
+	private static SeminarApp thisInstance;
+	
+	public SeminarApp() {
+		thisInstance = this; 
+	}
 
 	public Object getParent() {
 		return parent;
@@ -19,8 +25,8 @@ public class SeminarApp {
 		System.out.println("Hello World");
 	}
 
-	public Object getRootApp() {
-		return this;
+	public static Object getRootApp() {
+		return thisInstance;
 	}
 
 }
