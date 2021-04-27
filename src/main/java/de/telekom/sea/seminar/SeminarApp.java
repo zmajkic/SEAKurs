@@ -1,21 +1,14 @@
 package de.telekom.sea.seminar;
 
-public class SeminarApp {
+public class SeminarApp extends Child{
 
-	private Object parent;
-	
+
+
 	private static SeminarApp thisInstance;
-	
+
+	// Constructor enthält Refernzvariable
 	public SeminarApp() {
-		thisInstance = this; 
-	}
-
-	public Object getParent() {
-		return parent;
-	}
-
-	public void setParent(Object parent) {
-		this.parent = parent;
+		thisInstance = this;
 	}
 
 	public void run(String[] args) {
