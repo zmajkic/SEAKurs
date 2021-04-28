@@ -20,9 +20,9 @@ public class Menu implements MyMenu {
 		do {
 			result = this.inputMenu();
 			this.checkMenu(result);
-			System.out.println("KeepAsking");
+//			System.out.println("KeepAsking");
 		} while (!result.equals("0"));
-		System.out.println("while ende");
+//		System.out.println("while ende");
 	}
 
 	// Diese Methoden sind privat und haben im Interface nichts verloren
@@ -57,6 +57,7 @@ public class Menu implements MyMenu {
 			break;
 		case "3":
 			System.out.println("Du hast 3 gewählt!");
+			removeAll();
 			break;
 		case "0":
 			System.out.println("Du hast 0 gewählt!");
@@ -93,12 +94,16 @@ public class Menu implements MyMenu {
 			System.out.println("Person: " + i);
 			System.out.print(((Person) this.verwaltungsgruppe.get(i)).getVorname() + " ");
 			System.out.println(((Person) this.verwaltungsgruppe.get(i)).getNachname());
+
 		}
+		showMenu();
 	}
 
 	public void removeAll() // Die Teilnehmerliste resetten
 	{
-
+		verwaltungsgruppe.clear();
+		System.out.println("Alles gelöscht!");
+		showMenu();
 	}
 
 }

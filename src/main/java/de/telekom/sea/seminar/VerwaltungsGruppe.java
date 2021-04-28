@@ -51,5 +51,12 @@ public class VerwaltungsGruppe extends Child implements MyList {
 
 		return false;
 	}
+	
+	
+	public void clear( ) {		
+		this.count=0;
+		liste = new Object[arraylaenge];
+	}
+	
 
 }

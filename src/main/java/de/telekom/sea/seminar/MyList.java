@@ -9,6 +9,6 @@ public interface MyList {
 	
 	public boolean remove(Object object);
 	
-	
+	public void clear();
 	
 }
