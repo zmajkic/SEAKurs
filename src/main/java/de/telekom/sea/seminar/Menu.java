@@ -4,11 +4,17 @@ public class Menu implements MyMenu {
 
 	public void setMyList(MyList myList) // public - gib die Verwaltungs-"DB" dem Menu bekannt
 	{
-		
+		// MyList verwaltungsgruppe = myList;
 	}
 
 	public void keepAsking() // public - hällt die Schleife bis zum Abbruch am Leben
 	{
+		String result = "0";
+
+		do {
+			
+		} while (!result.equals("0"));
+
 	}
 
 	// Diese Methoden sind privat und haben im Interface nichts verloren
