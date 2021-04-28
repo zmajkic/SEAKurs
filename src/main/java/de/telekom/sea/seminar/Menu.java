@@ -9,10 +9,14 @@ public class Menu implements MyMenu {
 
 	public void keepAsking() // public - hällt die Schleife bis zum Abbruch am Leben
 	{
+
 		String result = "0";
 
+		// readMenu();
 		do {
-			
+			this.showMenu();
+			result = this.inputMenu();
+			System.out.println("KeepAsking");
 		} while (!result.equals("0"));
 
 	}
@@ -32,7 +36,11 @@ public class Menu implements MyMenu {
 
 	public String inputMenu() // privat - nimmt die Usereingabe entgegen --> scanner
 	{
-		return " ";
+
+		java.util.Scanner scanner = new java.util.Scanner(System.in);
+		var eingabe = scanner.nextLine();
+		scanner.close();
+		return eingabe;
 
 	}
 

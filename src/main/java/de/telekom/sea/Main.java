@@ -16,8 +16,8 @@ public class Main {
         
 		SeminarApp app = new SeminarApp();
 		var app2 = SeminarApp.getRootApp();
-		System.out.println(app);
-		System.out.println(app2);
+//		System.out.println(app);
+//		System.out.println(app2);
 		app.setParent(null);
 		app.run(args);
 
