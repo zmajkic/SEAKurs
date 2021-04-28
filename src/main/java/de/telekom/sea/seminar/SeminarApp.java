@@ -12,17 +12,10 @@ public class SeminarApp extends Child {
 	// run Methode
 	public void run(String[] args) {
 
-		
-		
-//		MyList verwaltungsgruppe = new VerwaltungsGruppe();
-//		verwaltungsgruppe.toString();
-
-		Person child = new Person();
-		child.setParent(this); // create a child in this Method
-
-//		altmain();
+		MyList verwaltungsgruppe = new VerwaltungsGruppe();
 
 		Menu menu = new Menu();
+		menu.setMyList(verwaltungsgruppe);
 		menu.keepAsking();
 
 	}
