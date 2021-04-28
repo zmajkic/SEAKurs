@@ -16,6 +16,10 @@ public class SeminarApp extends Child {
 		
 		System.out.println("Hello World");
 		altmain();
+
+		Menu menu = new Menu();
+		menu.showMenu(); 
+	
 	}
 
 	public static Object getRootApp() {

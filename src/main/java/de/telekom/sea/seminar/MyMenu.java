@@ -10,7 +10,7 @@ public interface MyMenu {
 	
 	public void showMenu(); 				// privat - Zeigt die Auswahl an und exit oder continue
 	public String inputMenu(); 				// privat - nimmt die Usereingabe entgegen --> scanner
-	public void checkMenu(String eingabe); 	// privat - case Evaluierung
+	public void checkMenu(String eingabe); 	// privat - case Evaluierung und Ausführungsaufruf
 	public void inputPerson();				// privat - eine Neue Person über StdIn erfassen
 	public void listAllPersons();			//
 	public void removeAll();				// Die Teilnehmerliste resetten	
