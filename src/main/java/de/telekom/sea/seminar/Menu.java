@@ -61,6 +61,7 @@ public class Menu implements MyMenu {
 			break;
 		case "0":
 			System.out.println("Du hast 0 gewählt!");
+			System.out.println("Tschüss");
 			break;
 		}
 	}
@@ -96,6 +97,7 @@ public class Menu implements MyMenu {
 			System.out.println(((Person) this.verwaltungsgruppe.get(i)).getNachname());
 
 		}
+		
 		showMenu();
 	}
 
