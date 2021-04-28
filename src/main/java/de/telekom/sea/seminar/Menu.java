@@ -31,11 +31,14 @@ public class Menu implements MyMenu {
 	public void showMenu() // privat - Zeigt die Auswahl an und exit oder continue
 	{
 		// System.out.println(System.lineSeparator().repeat(50));
-		System.out.println("Menu");
+		System.out.println("__________________________");
+		System.out.println(" ::::  Menu  ::::");
+		System.out.println("--------------------------");
 		System.out.println("1. Person Anlegen.");
 		System.out.println("2. Person ausgeben.");
 		System.out.println("3. Alle Personen löschen.");
 		System.out.println("0. Exit");
+		System.out.println("__________________________");
 	}
 
 	public String inputMenu() // privat - nimmt die Usereingabe entgegen --> scanner
@@ -48,15 +51,15 @@ public class Menu implements MyMenu {
 	{
 		switch (eingabe) {
 		case "1":
-			System.out.println("Du hast 1 gewählt!");
+			System.out.println(" ***  Person anlegen *** ");
 			inputPerson();
 			break;
 		case "2":
-			System.out.println("Du hast 2 gewählt!");
+			System.out.println(" *** Personen ausgeben *** ");
 			listAllPersons();
 			break;
 		case "3":
-			System.out.println("Du hast 3 gewählt!");
+			System.out.println(" *** Alles löschen *** ");
 			removeAll();
 			break;
 		case "0":
@@ -92,12 +95,12 @@ public class Menu implements MyMenu {
 			// }
 
 			// System.out.println(verwaltungsgruppe.get(0));
-			System.out.println("Person: " + i);
+			System.out.print("Person: " + i + " heißt: ");
 			System.out.print(((Person) this.verwaltungsgruppe.get(i)).getVorname() + " ");
 			System.out.println(((Person) this.verwaltungsgruppe.get(i)).getNachname());
 
 		}
-		
+System.out.println();
 		showMenu();
 	}
 
