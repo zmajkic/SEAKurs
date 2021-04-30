@@ -1,12 +1,12 @@
 package de.telekom.sea.seminar;
 
-public class SeminarApp extends Child {
+public class SeminarApp extends BaseObject {
 
 	private static SeminarApp thisInstance;
 
 	// Constructor enthält Refernzvariable
 	public SeminarApp() {
-		thisInstance = this;
+			thisInstance = this;
 	}
 
 	// run Methode

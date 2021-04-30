@@ -1,6 +1,6 @@
 package de.telekom.sea.seminar;
 
-public class VerwaltungsGruppe extends Child implements MyList {
+public class VerwaltungsGruppe extends BaseObject implements MyList {
 
 	public int arraylaenge = 4; // gesamte ArrayLaenge
 	public int count = 0; // Anzahl der angemeldeten Objekte
