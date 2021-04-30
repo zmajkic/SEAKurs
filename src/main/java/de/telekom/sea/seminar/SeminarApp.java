@@ -2,11 +2,10 @@ package de.telekom.sea.seminar;
 
 public class SeminarApp extends BaseObject {
 
-	private static SeminarApp thisInstance;
+	private static SeminarApp theInstance;
 
 	// Constructor enthält Refernzvariable
-	public SeminarApp() {
-			thisInstance = this;
+	private SeminarApp() {
 	}
 
 	// run Methode
@@ -20,8 +19,11 @@ public class SeminarApp extends BaseObject {
 
 	}
 
-	public static Object getRootApp() {
-		return thisInstance;
+	public static SeminarApp getRootApp() {
+		if (theInstance == null) {
+			theInstance = new SeminarApp();
+		}
+		return theInstance;
 	}
 	/*
 	 * public void altmain() { // TODO Auto-generated method stub
