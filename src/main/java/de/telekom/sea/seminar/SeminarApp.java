@@ -5,10 +5,7 @@ public class SeminarApp extends BaseObject {
 	private static SeminarApp theInstance;
 
 	// Constructor enthält Refernzvariable
-	public SeminarApp() {
-		if (theInstance == null) {
-			theInstance = this;
-		}
+	private SeminarApp() {
 	}
 
 	// run Methode
@@ -22,7 +19,10 @@ public class SeminarApp extends BaseObject {
 
 	}
 
-	public static Object getRootApp() {
+	public static SeminarApp getRootApp() {
+		if (theInstance == null) {
+			theInstance = new SeminarApp();
+		}
 		return theInstance;
 	}
 	/*
