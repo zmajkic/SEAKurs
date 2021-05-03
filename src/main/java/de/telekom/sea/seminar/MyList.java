@@ -1,5 +1,5 @@
 package de.telekom.sea.seminar;
-public interface MyList {
+public interface MyList extends EventRegistration{
 	
 	public boolean add(Object object);
 	

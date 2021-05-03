@@ -1,6 +1,6 @@
 package de.telekom.sea.seminar;
 
-public class Menu implements MyMenu {
+public class Menu implements MyMenu, EventListener {
 
 	MyList verwaltungsgruppe;
 
@@ -9,6 +9,12 @@ public class Menu implements MyMenu {
 	public void setMyList(MyList myList) // public - gib die Verwaltungs-"DB" dem Menu bekannt
 	{
 		verwaltungsgruppe = myList;
+	}
+
+	public void receive(Event event) {
+		listAllPersons();
+		System.out.println(event.getDescription());
+		System.out.println(">>>Event<<<");
 	}
 
 	public void keepAsking() // public - hällt die Schleife bis zum Abbruch am Leben
@@ -100,7 +106,7 @@ public class Menu implements MyMenu {
 			System.out.println(((Person) this.verwaltungsgruppe.get(i)).getNachname());
 
 		}
-System.out.println();
+		System.out.println();
 		showMenu();
 	}
 

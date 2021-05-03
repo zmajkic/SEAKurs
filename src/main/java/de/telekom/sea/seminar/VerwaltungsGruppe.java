@@ -1,15 +1,26 @@
 package de.telekom.sea.seminar;
 
-public class VerwaltungsGruppe extends BaseObject implements MyList {
+public class VerwaltungsGruppe extends BaseObject implements MyList, EventRegistration {
 
 	public int arraylaenge = 4; // gesamte ArrayLaenge
 	public int count = 0; // Anzahl der angemeldeten Objekte
 	private Object[] liste = new Object[arraylaenge]; // Array liste erstellen arraylaenge4 -> String0,1,2,3
 
+	private EventListener eventlistener;
+
+	public void subscribe(EventListener eventlistener) {
+		this.eventlistener = eventlistener;
+	}
+
 	public boolean add(Object einTeilnehmer) { // add Methode
 		if (count < arraylaenge) {
 			liste[count] = einTeilnehmer; // belege den ersten freien Platz
 			count++;
+
+			Event event = new Event();
+			event.setDescription("Teilnehmer hinzugefügt");
+			eventlistener.receive(event);
+
 			return true;
 		} else {
 			return false;
@@ -51,12 +62,16 @@ public class VerwaltungsGruppe extends BaseObject implements MyList {
 
 		return false;
 	}
-	
-	
-	public void clear( ) {		
-		this.count=0;
+
+	public void clear() {
+		this.count = 0;
 		liste = new Object[arraylaenge];
+		
+		
+		Event event = new Event();
+		event.setDescription("Alle Teilnehmer gelöscht");
+		eventlistener.receive(event);
+		
 	}
-	
 
 }

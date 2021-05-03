@@ -12,9 +12,11 @@ public class SeminarApp extends BaseObject {
 	public void run(String[] args) {
 
 		MyList verwaltungsgruppe = new VerwaltungsGruppe();
+		//VerwaltungsGruppe verwaltungsgruppe = new VerwaltungsGruppe();
 
-		Menu menu = new Menu();
+		MyMenu menu = new Menu();
 		menu.setMyList(verwaltungsgruppe);
+		verwaltungsgruppe.subscribe(menu);
 		menu.keepAsking();
 
 	}
