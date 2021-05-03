@@ -14,6 +14,7 @@ public class Menu implements MyMenu, EventListener {
 	public void receive(Event event) {
 		listAllPersons();
 		System.out.println(event.getDescription());
+		System.out.println(">>>Event<<<");
 	}
 
 	public void keepAsking() // public - hällt die Schleife bis zum Abbruch am Leben
