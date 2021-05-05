@@ -37,7 +37,9 @@ public class VerwaltungsGruppe extends BaseObject implements MyList, EventRegist
 		if (i < arraylaenge) {
 			return liste[i];
 		} else
-			return null;
+			throw new ArithmeticException("der Wert ist außerhalb der ArrayLaenge");
+			
+			//return null;
 	}
 
 	public boolean remove(Object obj) {
