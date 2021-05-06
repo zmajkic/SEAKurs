@@ -6,6 +6,8 @@ public class Menu implements MyMenu, EventListener {
 
 	java.util.Scanner scanner = new java.util.Scanner(System.in);
 
+	
+	
 	public void setMyList(MyList myList) // public - gib die Verwaltungs-"DB" dem Menu bekannt
 	{
 		verwaltungsgruppe = myList;
@@ -47,12 +49,21 @@ public class Menu implements MyMenu, EventListener {
 		System.out.println("__________________________");
 	}
 
+	
+	@Override
+	public void close() {
+		scanner.close();
+	}
+
+		
 	public String inputMenu() // privat - nimmt die Usereingabe entgegen --> scanner
 	{
 		var eingabe = scanner.nextLine();
 		return eingabe;
 	}
-
+	
+	
+	
 	public void checkMenu(String eingabe) // privat - case Evaluierung und Ausführungsaufruf
 	{
 		switch (eingabe) {
