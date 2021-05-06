@@ -44,7 +44,7 @@ public class Person extends BaseObject { // superKlasse
 		if (!(obj instanceof Person)) {      // ist es nicht derselbe Typ
 			return false;
 		}
-		Person person = (Person) obj;
+	//	Person person = (Person) obj;
 		
 		
 		// prüfen Vorname Nachname 

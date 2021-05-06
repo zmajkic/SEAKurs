@@ -5,6 +5,7 @@ public class SeminarApp extends BaseObject {
 	private static SeminarApp theInstance;
 
 	// Constructor enthält Refernzvariable
+
 	private SeminarApp() {
 	}
 
@@ -12,12 +13,23 @@ public class SeminarApp extends BaseObject {
 	public void run(String[] args) {
 
 		MyList verwaltungsgruppe = new VerwaltungsGruppe();
-		//VerwaltungsGruppe verwaltungsgruppe = new VerwaltungsGruppe();
+		// VerwaltungsGruppe verwaltungsgruppe = new VerwaltungsGruppe();
 
-		MyMenu menu = new Menu();
-		menu.setMyList(verwaltungsgruppe);
-		verwaltungsgruppe.subscribe(menu);
-		menu.keepAsking();
+		//MyMenu menu = new Menu();
+		//try {
+			
+		try (MyMenu menu = new Menu()) {
+			menu.setMyList(verwaltungsgruppe);
+			verwaltungsgruppe.subscribe(menu);
+			menu.keepAsking();
+
+		} /*finally {
+			menu.close();
+
+		}*/ catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
@@ -72,4 +84,7 @@ public class SeminarApp extends BaseObject {
 	 * 
 	 * }
 	 */
+
+
+	
 }

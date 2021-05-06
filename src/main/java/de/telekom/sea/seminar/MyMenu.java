@@ -1,5 +1,5 @@
 package de.telekom.sea.seminar;
-public interface MyMenu extends EventListener{
+public interface MyMenu extends EventListener, AutoCloseable{
 	
 	public void setMyList(MyList myList);	// public - gib die Verwaltungs-"DB" dem Menu bekannt
 	public void keepAsking(); 				// public - hällt die Schleife bis zum Abbruch am Leben
