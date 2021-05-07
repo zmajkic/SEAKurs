@@ -11,4 +11,6 @@ public interface MyList extends EventRegistration{
 	
 	public void clear();
 	
+	public MyList sublist(String searchtext);
+	
 }

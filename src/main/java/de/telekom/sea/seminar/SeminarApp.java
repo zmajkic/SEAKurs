@@ -20,7 +20,24 @@ public class SeminarApp extends BaseObject {
 			
 		try (MyMenu menu = new Menu()) {
 			menu.setMyList(verwaltungsgruppe);
-			verwaltungsgruppe.subscribe(menu);
+			verwaltungsgruppe.subscribe(menu);			
+			
+			  Person thomas = new Person(); thomas.setVorname("Thomas");
+			  thomas.setNachname("Horchem");
+			  
+			  Person agata = new Person(); agata.setVorname("Agata");
+			  agata.setNachname("Rubin-Jung");
+			  
+			  Person zeljko = new Person(); zeljko.setVorname("Zeljko");
+			  zeljko.setNachname("Majkic");
+			  
+			  Person thorsten = new Person(); thorsten.setVorname("Thorsten");
+			  thorsten.setNachname("Lorenz");
+			  
+			  verwaltungsgruppe.add(thomas); 
+			  verwaltungsgruppe.add(agata); verwaltungsgruppe.add(zeljko);
+			  verwaltungsgruppe.add(thorsten);
+			
 			menu.keepAsking();
 
 		} /*finally {
@@ -39,6 +56,9 @@ public class SeminarApp extends BaseObject {
 		}
 		return theInstance;
 	}
+	
+	
+	
 	/*
 	 * public void altmain() { // TODO Auto-generated method stub
 	 * 
