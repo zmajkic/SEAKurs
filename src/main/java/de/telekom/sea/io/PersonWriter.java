@@ -16,14 +16,21 @@ public class PersonWriter {
 		fileWriter = new FileWriter(file);
 	}
 
-	public PersonWriter(FileWriter fileWriter) {    // 
+	public PersonWriter(FileWriter fileWriter) { //
 		this.fileWriter = fileWriter;
 	}
 
-	public void write(Person person) throws IOException {
-		fileWriter.write(person.getVorname());
-		fileWriter.write(person.getNachname());
+	final static String SEMICOLON = ";";
+	final static String LINEFEED = "\n";
 
+	public void write(Person person) throws IOException {
+
+		fileWriter.write(Long.toString(person.getId()));
+		fileWriter.write(SEMICOLON);
+		fileWriter.write(person.getVorname());
+		fileWriter.write(SEMICOLON);
+		fileWriter.write(person.getNachname());
+		fileWriter.write(LINEFEED);
 	}
 
 }
