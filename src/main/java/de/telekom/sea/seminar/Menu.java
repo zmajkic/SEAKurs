@@ -1,13 +1,15 @@
 package de.telekom.sea.seminar;
 
+import java.io.IOException;
+
+import de.telekom.sea.io.VerwaltungsGruppeWriter;
+
 public class Menu implements MyMenu, EventListener {
 
 	MyList verwaltungsgruppe;
 
 	java.util.Scanner scanner = new java.util.Scanner(System.in);
 
-	
-	
 	public void setMyList(MyList myList) // public - gib die Verwaltungs-"DB" dem Menu bekannt
 	{
 		verwaltungsgruppe = myList;
@@ -45,25 +47,22 @@ public class Menu implements MyMenu, EventListener {
 		System.out.println("1. Person Anlegen.");
 		System.out.println("2. Person ausgeben.");
 		System.out.println("3. Alle Personen löschen.");
+		System.out.println("4. In Datei schreiben.");
 		System.out.println("0. Exit");
 		System.out.println("__________________________");
 	}
 
-	
 	@Override
 	public void close() {
 		scanner.close();
 	}
 
-		
 	public String inputMenu() // privat - nimmt die Usereingabe entgegen --> scanner
 	{
 		var eingabe = scanner.nextLine();
 		return eingabe;
 	}
-	
-	
-	
+
 	public void checkMenu(String eingabe) // privat - case Evaluierung und Ausführungsaufruf
 	{
 		switch (eingabe) {
@@ -79,11 +78,28 @@ public class Menu implements MyMenu, EventListener {
 			System.out.println(" *** Alles löschen *** ");
 			removeAll();
 			break;
+		case "4":
+			System.out.println(" *** In Datei Schreiben *** ");
+			save();
+			break;
 		case "0":
 			System.out.println("Du hast 0 gewählt!");
 			System.out.println("Tschüss");
 			break;
 		}
+	}
+
+	private void save() {
+		String filepath = "/Users/a298557/sea_eclipse_workspace/Teilnehmer.sea";
+
+		try (VerwaltungsGruppeWriter verwaltungsGruppeWriter = new VerwaltungsGruppeWriter(filepath);) {
+			verwaltungsGruppeWriter.write(verwaltungsgruppe);
+//			verwaltungsGruppeWriter.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Fehler bei Datei I/O");
+		}
+
 	}
 
 	public void inputPerson() // privat - eine Neue Person über StdIn erfassen
