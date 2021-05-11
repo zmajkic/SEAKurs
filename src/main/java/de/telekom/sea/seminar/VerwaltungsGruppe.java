@@ -2,7 +2,7 @@ package de.telekom.sea.seminar;
 
 public class VerwaltungsGruppe extends BaseObject implements MyList, EventRegistration {
 
-	public int arraylaenge = 4; // gesamte ArrayLaenge
+	public int arraylaenge = 14; // gesamte ArrayLaenge
 	public int count = 0; // Anzahl der angemeldeten Objekte
 	private Object[] liste = new Object[arraylaenge]; // Array liste erstellen arraylaenge4 -> String0,1,2,3
 

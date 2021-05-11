@@ -27,9 +27,9 @@ public class PersonWriter {
 
 		fileWriter.write(Long.toString(person.getId()));
 		fileWriter.write(SEMICOLON);
-		fileWriter.write(person.getVorname());
+		fileWriter.write(person.getVorname().trim());
 		fileWriter.write(SEMICOLON);
-		fileWriter.write(person.getNachname());
+		fileWriter.write(person.getNachname().trim());
 		fileWriter.write(LINEFEED);
 	}
 
