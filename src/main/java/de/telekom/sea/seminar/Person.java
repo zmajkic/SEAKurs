@@ -52,5 +52,9 @@ public class Person extends BaseObject { // superKlasse
 		return true;
 		
 	}
+
+
+
+
 		
 }

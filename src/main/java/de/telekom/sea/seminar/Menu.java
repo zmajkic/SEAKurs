@@ -2,6 +2,7 @@ package de.telekom.sea.seminar;
 
 import java.io.IOException;
 
+import de.telekom.sea.io.VerwaltungsGruppeReader;
 import de.telekom.sea.io.VerwaltungsGruppeWriter;
 
 public class Menu implements MyMenu, EventListener {
@@ -48,6 +49,7 @@ public class Menu implements MyMenu, EventListener {
 		System.out.println("2. Person ausgeben.");
 		System.out.println("3. Alle Personen löschen.");
 		System.out.println("4. In Datei schreiben.");
+		System.out.println("5. Datei auslesen.");
 		System.out.println("0. Exit");
 		System.out.println("__________________________");
 	}
@@ -82,6 +84,10 @@ public class Menu implements MyMenu, EventListener {
 			System.out.println(" *** In Datei Schreiben *** ");
 			save();
 			break;
+		case "5":
+			System.out.println(" *** Datei auslesen *** ");
+			load();
+			break;
 		case "0":
 			System.out.println("Du hast 0 gewählt!");
 			System.out.println("Tschüss");
@@ -89,17 +95,28 @@ public class Menu implements MyMenu, EventListener {
 		}
 	}
 
-	private void save() {
-		String filepath = "/Users/a298557/sea_eclipse_workspace/Teilnehmer.sea";
+	private final static String FILEPATH = "/Users/a298557/sea_eclipse_workspace/Teilnehmer.sea";
 
-		try (VerwaltungsGruppeWriter verwaltungsGruppeWriter = new VerwaltungsGruppeWriter(filepath);) {
+	private void load() {
+		try (VerwaltungsGruppeReader verwaltungsgruppenreader = new VerwaltungsGruppeReader(FILEPATH);) {
+			verwaltungsgruppe = verwaltungsgruppenreader.read();
+			
+
+			
+			
+		} catch (IOException e) {
+			System.out.println("Fehler bei Datei I/O");
+		}
+	}
+
+	private void save() {
+		try (VerwaltungsGruppeWriter verwaltungsGruppeWriter = new VerwaltungsGruppeWriter(FILEPATH);) {
 			verwaltungsGruppeWriter.write(verwaltungsgruppe);
 //			verwaltungsGruppeWriter.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Fehler bei Datei I/O");
 		}
-
 	}
 
 	public void inputPerson() // privat - eine Neue Person über StdIn erfassen
