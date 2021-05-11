@@ -37,6 +37,12 @@ public class BaseObject extends Object {
 		return id;
 	}
 
+	public void setId(long id) {
+		this.id = id;
+		
+	}
+	
+	
 	@Override
 	public String toString() {
 		return ((Long) id).toString();

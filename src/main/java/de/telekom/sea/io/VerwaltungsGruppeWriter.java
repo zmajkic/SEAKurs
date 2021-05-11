@@ -11,8 +11,7 @@ import de.telekom.sea.seminar.Person;
 
 public class VerwaltungsGruppeWriter implements Closeable {
 
-	FileWriter fileWriter;
-
+	private FileWriter fileWriter;
 	private PersonWriter personWriter;
 
 	public VerwaltungsGruppeWriter(String filepath) throws IOException {

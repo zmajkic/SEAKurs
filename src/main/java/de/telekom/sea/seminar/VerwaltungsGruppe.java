@@ -16,16 +16,11 @@ public class VerwaltungsGruppe extends BaseObject implements MyList, EventRegist
 		if (count < arraylaenge) {
 			liste[count] = einTeilnehmer; // belege den ersten freien Platz
 			count++;
-
-			Event event = new Event();
-			event.setDescription("Teilnehmer hinzugefügt");
-			eventlistener.receive(event);
-
+			sendEvent("Teilnehmer hinzugefügt");
 			return true;
 		} else {
 			return false;
 		}
-
 	}
 
 	public int size() { // size gibt aus wieviele angemeldet sind
@@ -38,8 +33,8 @@ public class VerwaltungsGruppe extends BaseObject implements MyList, EventRegist
 			return liste[i];
 		} else
 			throw new RuntimeException("der Wert ist außerhalb der ArrayLaenge");
-			
-			//return null;
+
+		// return null;
 	}
 
 	public boolean remove(Object obj) {
@@ -52,6 +47,7 @@ public class VerwaltungsGruppe extends BaseObject implements MyList, EventRegist
 				liste[i] = liste[count - 1];
 				liste[count - 1] = null;
 				count--;
+				sendEvent("Ein Teilnehmer gelöscht");
 				return true;
 			}
 		}
@@ -59,21 +55,24 @@ public class VerwaltungsGruppe extends BaseObject implements MyList, EventRegist
 		if (obj == liste[count - 1]) {
 			liste[count - 1] = null;
 			count--;
+			sendEvent("Ein Teilnehmer gelöscht");
 			return true;
 		}
-
 		return false;
 	}
 
 	public void clear() {
 		this.count = 0;
 		liste = new Object[arraylaenge];
-		
-		
-		Event event = new Event();
-		event.setDescription("Alle Teilnehmer gelöscht");
-		eventlistener.receive(event);
-		
+		sendEvent("Alle Teilnehmer gelöscht");
+	}
+
+	private void sendEvent(String description) {
+		if (eventlistener != null) {
+			Event event = new Event();
+			event.setDescription(description);
+			eventlistener.receive(event);
+		}
 	}
 
 }
