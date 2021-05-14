@@ -10,8 +10,8 @@ import de.telekom.sea.seminar.Person;
 
 public class PersonReader {
 
-	FileReader fileReader;
-	BufferedReader bufferedReader;
+	private FileReader fileReader;
+	private BufferedReader bufferedReader;
 
 	public PersonReader(String filepath) throws IOException { // enthält Dateiname und Pfad
 		File file = new File(filepath); // java.io.File
