@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+import de.telekom.sea.seminar.Anrede;
 import de.telekom.sea.seminar.Person;
 
 public class PersonReader {
@@ -31,11 +32,16 @@ public class PersonReader {
 			String idstring = field[0]; // id ist feld 0
 			long id = Long.parseLong(idstring); // idstring zur long verwandeln
 												// long id = Long.parseLong(fields[0]);
-			String vorname = field[1]; // vorname ist feld 1
-			String nachname = field[2]; // nachname ist feld 2
+			
+			String anredeString = field[1];
+			Anrede anrede = Anrede.fromString(anredeString);
+			
+			String vorname = field[2]; // vorname ist feld 1
+			String nachname = field[3]; // nachname ist feld 2
 
 			Person person = new Person();
 			person.setId(id);
+			person.setAnrede(anrede);;	
 			person.setVorname(vorname);
 			person.setNachname(nachname);
 

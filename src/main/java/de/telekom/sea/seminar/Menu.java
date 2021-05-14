@@ -2,6 +2,7 @@ package de.telekom.sea.seminar;
 
 import java.io.IOException;
 
+import static de.telekom.sea.seminar.Anrede.*;
 import de.telekom.sea.io.VerwaltungsGruppeReader;
 import de.telekom.sea.io.VerwaltungsGruppeWriter;
 
@@ -100,10 +101,7 @@ public class Menu implements MyMenu, EventListener {
 	private void load() {
 		try (VerwaltungsGruppeReader verwaltungsgruppenreader = new VerwaltungsGruppeReader(FILEPATH);) {
 			verwaltungsgruppe = verwaltungsgruppenreader.read();
-			
 
-			
-			
 		} catch (IOException e) {
 			System.out.println("Fehler bei Datei I/O");
 		}
@@ -122,6 +120,16 @@ public class Menu implements MyMenu, EventListener {
 	public void inputPerson() // privat - eine Neue Person über StdIn erfassen
 	{
 		Person person = new Person();
+		System.out.println("Anrede eingeben:");
+		try {
+			person.setAnrede(Anrede.fromString(this.inputMenu()));
+
+		} catch (Exception e) {
+			System.out.println("Falsche Einagbe nur Frau, Herr und Divers möglich");
+			return;
+
+		}
+
 		System.out.println("Vorname eingeben:");
 		person.setVorname(this.inputMenu());
 //		System.out.println(person.getVorname());
@@ -146,6 +154,10 @@ public class Menu implements MyMenu, EventListener {
 
 			// System.out.println(verwaltungsgruppe.get(0));
 			System.out.print("Person: " + i + " heißt: ");
+
+			System.out.print(((Person) this.verwaltungsgruppe.get(i)).getId() + " ");
+			System.out.print(((Person) this.verwaltungsgruppe.get(i)).getAnrede() + " ");
+
 			System.out.print(((Person) this.verwaltungsgruppe.get(i)).getVorname() + " ");
 			System.out.println(((Person) this.verwaltungsgruppe.get(i)).getNachname());
 
