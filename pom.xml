@@ -28,6 +28,10 @@
 						<manifest>
 							<mainClass>de.telekom.sea.Main</mainClass> <!-- name der Java Klasse -->
 						</manifest>
+                                                <manifestEntries>
+                                                  <author>Zeljko Majkic</author>
+                                                 <date>${maven.build.timestamp}</date> 
+                                                </manifestEntries>
 					</archive>
 				</configuration>
 			</plugin>
