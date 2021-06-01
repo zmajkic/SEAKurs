@@ -3,6 +3,7 @@ package de.telekom.sea.seminar;
 public class VerwaltungsGruppe7 extends BaseObject implements MyList {
 	//-- Variabeln-----------------------------------------------------------------------------------------------------	
 	int maxobjectliste=15;												// maximale Anzahl an Objekten, derzeit auf 15 begrenzt
+	//int maxobjectliste=1;		
 	private Object[] objectliste = new Object[maxobjectliste];			// Array von Objekten
 	private int anzahl;													// Zaehler der Objekte 0 bis 14
 //	private MyListener myListener;

@@ -2,7 +2,7 @@ package de.telekom.sea.seminar;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterEach;
@@ -18,6 +18,27 @@ public class VerwaltungsGruppe7Test {
 	@BeforeEach // diese Methode for jedem test ausführen
 	void setup() {
 		cut = new VerwaltungsGruppe7();
+	}
+
+	@Test
+	void add_exception_test() {
+		// Arrange
+
+		for (int i = 0; i <= 14; i++) {
+
+			Person personX = new Person();
+			personX.setVorname("Ilona" + i);
+			personX.setNachname("Keiser");
+//			System.out.println("Nr.: " + i + " " + personX.toString());
+			cut.add(personX);
+		}
+
+		// Act
+		// Assert
+
+		assertThrows(RuntimeException.class, () -> {
+			cut.add(new Person());
+		});
 	}
 
 	@Test // liefert die Methode check standardmässig True zurück?
@@ -72,11 +93,6 @@ public class VerwaltungsGruppe7Test {
 		assertEquals(0, result2);
 	}
 
-	
-	
-	
-	
-	
 	@Test
 	void remove_Object_test() {
 		// Arrange
@@ -93,44 +109,26 @@ public class VerwaltungsGruppe7Test {
 
 		// Assert
 		assertEquals(1, result2);
-		boolean result3 = cut.remove(person); 
+		boolean result3 = cut.remove(person);
 		assertFalse(result3);
-		
-		
-	}
-	
-	
-	
-	
 
-	
-	
+	}
+
 	@Test
 	void remove_int_test() {
 		// Arrange
 		Person person = new Person();
-
 		cut.add(person);
-
 		int result = cut.size();
 		assertEquals(1, result);
-
 		// Act
 		cut.remove(0);
-		
 //		assertNull(result);
-		
 		int result2 = cut.size();
-
 		// Assert
 		assertEquals(0, result2);
 	}
-	
-	
-	
-	
-	
-	
+
 //	
 //	@Test
 //	void MyList_search_test() {
@@ -158,22 +156,7 @@ public class VerwaltungsGruppe7Test {
 //		
 //		
 //	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	@AfterEach
 	void teardown() {
 		cut = null;
