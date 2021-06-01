@@ -2,7 +2,6 @@ package de.telekom.sea.seminar;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -20,9 +19,6 @@ public class VerwaltungsGruppe7Test {
 	void setup() {
 		cut = new VerwaltungsGruppe7();
 	}
-
-
-
 
 	@Test
 	void add_exception_test() {
@@ -44,19 +40,6 @@ public class VerwaltungsGruppe7Test {
 			cut.add(new Person());
 		});
 	}
-
-	
-	
-	
-	
-	
-//	for (int i=0;i<=1; i++ ) {
-//				
-//	}
-
-//	String person = ("person" +i);
-//	System.out.println(person);
-//	Person person = new Person();
 
 	@Test // liefert die Methode check standardmässig True zurück?
 	void check_test() {
@@ -135,19 +118,13 @@ public class VerwaltungsGruppe7Test {
 	void remove_int_test() {
 		// Arrange
 		Person person = new Person();
-
 		cut.add(person);
-
 		int result = cut.size();
 		assertEquals(1, result);
-
 		// Act
 		cut.remove(0);
-
 //		assertNull(result);
-
 		int result2 = cut.size();
-
 		// Assert
 		assertEquals(0, result2);
 	}

@@ -1,0 +1,32 @@
+************************
+****** Quest 1619 ******
+************************
+
+
+
+✔ You have a class coverage of at least 20%
+ 1 class of 11 
+
+✔ You have a method coverage of at least 50% for the list class
+
+VerwaltungsGruppe7Test.java has 8 Methods we have tested 6 of them:
+
+add_exception_test
+check_test()
+add_test()
+clear_test()
+remove_Object_test()
+remove_int_test()
+
+
+
+✔ You include a text file that describes the test coverage as specified above
+Check
+
+✔ Your code is pushed to the git repository server (GitHub, GitLab, ...)
+Check
+
+
+
+
+
