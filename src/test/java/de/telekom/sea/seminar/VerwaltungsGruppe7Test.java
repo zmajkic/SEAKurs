@@ -165,15 +165,12 @@ public class VerwaltungsGruppe7Test {
 //		
 //	}
 
-	//Hallo1
-	//Hallo2
-	//Hallo3	
-	//Hallo4 Test Branch	
-	
-	@AfterEach
-	void teardown() {
-		cut = null;
 
-	}
+	
+//	@AfterEach
+//	void teardown() {
+//		cut = null;
+//
+//	}
 
 }
